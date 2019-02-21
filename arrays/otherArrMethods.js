@@ -32,7 +32,7 @@ console.log(someObj === otherObj) //true
 
 
 //=====================================================
-// We cant use indexOf() for objects, since it gives -1
+// We cant use indexOf() for objects, (or arrays) since it gives -1
 // Since it === compares an obj with another obj
 
 // So, we use `findIndex()` returns the index of first element in the arr 
