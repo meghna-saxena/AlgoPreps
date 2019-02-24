@@ -29,9 +29,10 @@ const deleteToDo = function (todos, text) {
     })
 
     if (index > -1) {
-        return todos.splice(index, 1)
+        return todos.splice(index, 1) //for immutably removing todos.slice(index)
+        //the function returns the removed object [ { text: 'Code', completed: true } ]
     }
 }
 
-deleteToDo(todos, 'code')
+console.log('hey', deleteToDo(todos, 'code'))
 console.log(todos)
