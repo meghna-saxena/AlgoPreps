@@ -12,7 +12,7 @@ notes.push('My new note') //adds new item in the end
 notes.shift() //removes an item from beginning
 notes.unshift('First note') //adds item in beginning
 
-/* MANIPULATE ARRAY FROM THE MODDLE */
+/* MANIPULATE ARRAY */
 // Array.prototype.splice()
 
 notes.splice(1, 1) //remove item from index 1 and remove only one item, so removes 'Note 2'

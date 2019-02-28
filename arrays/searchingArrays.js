@@ -4,7 +4,12 @@
  * the provided testing function
  */
 
- /* Array and Objects are passed by reference */
+/* Array and Objects are passed by reference */
+
+// search arrays by indexOf or findIndex
+// indexof always checks with strict equality operator, '==='
+// indexOf cant be used for arrays and objects since it evaluates a value and returns its index
+// findIndex allows us to compare two things by accepting a function/predicate
 
 const notes = [{
     title: 'My next trip',
