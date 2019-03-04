@@ -42,3 +42,7 @@ Object refers to JavaScript object that models a HTML document. Its not an objec
     - For reading and writing the value
         - `console.log(p.textContent)`
         - `p.textContent = 'asdfgh'`
+    - `remove()` method removes the element
+
+## Adding elements via the DOM
+- `document.createElement()` creates new element.
