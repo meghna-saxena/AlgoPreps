@@ -14,3 +14,31 @@ So, in short and simplified - all code that interacts with a DOM has to be execu
  
  For hosting files via server using npm package
  `live-server`
+
+## DOM Manipulation
+Document Object Model
+
+Document refers to HTML document.
+Object refers to JavaScript object that models a HTML document. Its not an object created by us, it is provided by the browser.
+
+- Remove `<p>` from document:
+    - Query and remove
+        - Get this element from DOM by querying it.
+             - `document.querySelector('p')` -> write the tag name in quotes.
+            - `const p = document.querySelector('p')`
+            - `p.remove()` removes the element
+        - Do what you intend with the element
+        - `document.querySelector()` matches the first element
+    
+    - Query all and remove
+        - `const paragraphs = document.querySelectorAll('p')`
+        - Returns array of all the matching elements.
+        
+        ```
+        paragraphs.forEach(function (p) {
+            p.remove()
+        })
+        ```
+    - For reading and writing the value
+        - `console.log(p.textContent)`
+        - `p.textContent = 'asdfgh'`
