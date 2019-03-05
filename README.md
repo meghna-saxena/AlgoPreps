@@ -39,6 +39,17 @@ Object refers to JavaScript object that models a HTML document. Its not an objec
             p.remove()
         })
         ```
+
+        ```
+        const paragraphs = document.querySelectorAll('p')
+
+        paragraphs.forEach(function (p) {
+            if (p.textContent.includes('the')) {
+                p.remove()
+            }
+        })
+        ```
+        
     - For reading and writing the value
         - `console.log(p.textContent)`
         - `p.textContent = 'asdfgh'`
