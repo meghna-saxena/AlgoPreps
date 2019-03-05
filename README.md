@@ -45,4 +45,17 @@ Object refers to JavaScript object that models a HTML document. Its not an objec
     - `remove()` method removes the element
 
 ## Adding elements via the DOM
-- `document.createElement()` creates new element.
+- `document.createElement('p')` creates new element.
+- `document.createElement('p')` is the DOM representation of paragraph so store it in a variable.
+
+- `appendChild()`
+    - Pick the place where you have to put the newly created element.
+    - Append child adds the new item as the last child.
+
+    ```
+    const paragrah =  document.createElement('p')
+    
+    paragraph.textContent = 'This is a new element from JavaScript.'
+
+    document.querySelector('body').appendChild(paragraph)
+    ```

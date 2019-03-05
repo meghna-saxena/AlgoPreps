@@ -5,3 +5,9 @@ paragraphs.forEach(function (p) {
         p.remove()
     }
 })
+
+const newPara =  document.createElement('p')
+    
+newPara.textContent = 'This is a new element from JavaScript.'
+
+document.querySelector('body').appendChild(newPara)
