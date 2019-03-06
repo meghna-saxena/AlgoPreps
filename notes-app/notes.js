@@ -30,3 +30,7 @@ document.querySelector('#remove-all-btn').addEventListener('click', function () 
 document.querySelector('#reset-btn').addEventListener('click', function () {
     console.log('reset')
 })
+
+document.querySelector('#text-input').addEventListener('input', function (e) {
+    console.log(e.target.value)
+})
