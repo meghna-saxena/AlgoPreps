@@ -312,3 +312,5 @@ Conclusion
 The current state-of-the-art is to put scripts in the `<head>` tag and `use the async or defer attributes`. This allows your scripts to be downloaded asap without blocking your browser.
 
 The good thing is that your website should still load correctly on the 6% of browsers that do not support these attributes while speeding up the other 94%.
+
+## Rendering filtered data
