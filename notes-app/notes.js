@@ -1,34 +1,14 @@
-const todos = [{
-    text: 'Read',
-    completed: false
+const notes = [{
+    title: 'My next trip',
+    body: 'I would like to go to Spain'
 }, {
-    text: 'Cook',
-    completed: false
+    title: 'Habbits to work on',
+    body: 'Exercise. Eating a bit better.'
 }, {
-    text: 'Bathe',
-    completed: true
-}, {
-    text: 'Take care of Raj',
-    completed: true
-},
-{
-    text: 'Code',
-    completed: true
+    title: 'Office modification',
+    body: 'Get a new seat'
 }]
 
-// You have 2 todos left (p element)
-// Add a p for each todo above (use text value)
-
-const incompleteTodos = todos.filter(function (todo) {
-    return !todo.completed
-})
-
-const summary = document.createElement('h2')
-summary.textContent = `You have ${incompleteTodos.length} todos left.`
-document.querySelector('body').appendChild(summary)
-
-todos.forEach(function (todo) {
-    const p = document.createElement('p')
-    p.textContent = todo.text
-    document.querySelector('body').appendChild(p)
-})
+document.querySelector('button').addEventListener('click', function (e) {
+    e.target.textContent = 'Clicked'
+})  

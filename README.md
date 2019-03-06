@@ -49,7 +49,7 @@ Object refers to JavaScript object that models a HTML document. Its not an objec
             }
         })
         ```
-        
+
     - For reading and writing the value
         - `console.log(p.textContent)`
         - `p.textContent = 'asdfgh'`
@@ -57,10 +57,11 @@ Object refers to JavaScript object that models a HTML document. Its not an objec
 
 ## Adding elements via the DOM
 - `document.createElement('p')` creates new element.
-- `document.createElement('p')` is the DOM representation of paragraph so store it in a variable.
+    - `document.createElement('p')` is the DOM representation of paragraph so store it in a variable.
 
 - `appendChild()`
     - Pick the place where you have to put the newly created element.
+    - Add textContent to the element.
     - Append child adds the new item as the last child.
 
     ```
@@ -70,3 +71,52 @@ Object refers to JavaScript object that models a HTML document. Its not an objec
 
     document.querySelector('body').appendChild(paragraph)
     ```
+
+## Handling user interaction
+
+`Event` is something that a user does, like clicking a button or hovering over a paragraph or scrolling on the screen.
+
+`Event listeners` are functions which are executes when event happens.
+
+> Steps:
+- Query for the element where event listener will be attached.
+    - `document.querySelector('button').addEventListener()`
+    - `addEventListener()` takes 2 args, the first is the string where you put event name like click, or mouse up or change, and second arg is func to run when event happens.
+    - In second arg of function, event listners pass an arg to that function, called `event`, this event object has `target` property which is representation of that DOM element.
+    - For changing the text of that target element:
+        - `event.target.textContent = 'Clicked'`
+        - Now when btn is clicked, the text content will change from Click -> Clicked
+
+        ```
+        document.querySelector('button').addEventListener('click', function (e) {
+            e.target.textContent = 'Clicked'
+        })  
+        ```
+
+> Notes:
+
+HTML attribute specifically:
+
+```
+<button onclick="dostuff"></button>
+```
+
+But there's also:
+
+```
+document.getElementById("mybutton").onclick = function () { ... }
+
+//and
+
+document.getElementById("mybutton").addEventListener('click'), function () { ... })
+```
+
+Always avoid the first one, there's no benefit to it, but it potentially introduces a few bugs and is really hard to maintain properly. The second and third are the same thing, but the third one lets you add multiple click listeners if you want.
+
+Adding multiple listeners:
+
+```
+document.getElementById("mybutton").addEventListener('click'), function () { alert('Hello1') })
+
+document.getElementById("mybutton").addEventListener('click'), function () { alert('Hello2') })  
+```
