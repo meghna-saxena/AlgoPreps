@@ -120,3 +120,94 @@ document.getElementById("mybutton").addEventListener('click'), function () { ale
 
 document.getElementById("mybutton").addEventListener('click'), function () { alert('Hello2') })  
 ```
+
+________________________
+
+## Advanced queries
+Diff ways to select element from your document.
+
+- `document.querySelector() only returns the first element matching the tag name`. 
+    - Therefore `document.querySelector('button')` returns first btn only.
+- `document.querySelectorAll() returns a list/array of all elements` matching the tag name.
+    - To access second button from the document: 
+   
+    ```
+    document.querySelectorAll('button')[1] 
+    //returns second button
+    ```
+    - Add `event listener` to it: 
+      
+    ```
+    document.querySelectorAll('button')[1].addEventListener('click', function () {
+        console.log('delete all')
+    })
+    ```
+
+> *Problem with this approach:*
+Very `close coupling b/w structure of html file and the querySelectors` in javascript file. So if someone switches the position of button from 1st place to second, the javascript will work incorrect.
+__________
+
+*Solution:*
+- Specific way to target elements rather than targeting by their `tagName`.
+- Id's and classes.
+
+*Id:*
+- A `unique identifier` for each element on html page.
+- An id is unique so only one element can have it.
+- Setup an `id` attribute. 
+    - Eg: `<button id="my-btn">Click<button>`
+- For selecting an id, `document.querySelector('#my-btn')`
+
+
+*Class:*
+- Classes can be held by mutiple elements.
+- Use class attribute
+- For selecting a class, `document.querySelectorAll('.my-btn')`
+
+Important:
+- `Id's use document.querySelector()` since it's one.
+- `Class use document.querySelectorAll()` since it can be multiple.
+
+```
+document.querySelector('#remove-all-btn').addEventListener('click', function () {
+    document.querySelectorAll('.note').forEach(function (note) {
+        note.remove()
+    })
+})
+```
+
+> Refresher:
+
+Single:
+- p -> targets p tag
+- #replace -> targets element with id replace
+- .item  -> targets element with class item
+
+Multiple:
+- p#order -> targets p tag with id order
+- button.inventory -> targets button with class inventory
+- h1#title.application -> targets h1 with id title and class application
+- h1.application#title -> targets h1 with class application and id title
+________
+
+
+### document.getElementById() vs. document.querySelector()
+
+Both return a reference to the DOM node which will always provide the latest DOM details. 
+
+```
+// Create <p id="someid">Old</p> first
+ 
+// Select both ways
+const p1 = document.getElementById('someid')
+const p2 = document.querySelector('p')
+ 
+// Change it
+document.querySelector('p').textContent = 'New'
+ 
+// Both will print "New"
+console.log(p1.textContent)
+console.log(p2.textContent)
+```
+
+## Text inputs and live data filtering
