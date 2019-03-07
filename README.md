@@ -314,3 +314,45 @@ The current state-of-the-art is to put scripts in the `<head>` tag and `use the 
 The good thing is that your website should still load correctly on the 6% of browsers that do not support these attributes while speeding up the other 94%.
 
 ## Rendering filtered data
+- Added a `<div>` id which is a content divider
+- Create a method to filter notes whose title matches the search text
+- Clear the `div id` by setting innerHTML to `''`
+- Add just the filtered notes
+
+- To clear an element, use innerHTML property which allows to set new html value `document.querySelector('#notes').innerHTML = '<p>test</p>'`, renders test as value, ignore the p tags.
+and for clearing it set it equal to empty string
+
+`document.querySelector('#notes').innerHTML('')`
+
+
+```
+const filters = {
+    searchText: ''
+}
+
+const renderNotes = function (notes, filters) {
+    const filteredNotes = notes.filter(function (note) {
+        return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
+    })
+
+    document.querySelector('#notes').innerHTML = ''
+    
+    filteredNotes.forEach(function (note) {
+        const noteElement = document.createElement('p')
+        noteElement.textContent = note.title
+
+        document.querySelector('#notes').appendChild(noteElement)
+    })
+}
+
+renderNotes(notes, filters)
+
+document.querySelector('#search-text').addEventListener('input', function (e) {
+    filters.searchText = e.target.value
+    renderNotes(notes, filters)
+})
+```
+
+> Notes:
+
+The difference between `innerHTML` and `textContent` is that innerHTML parses whatever you give it as HTML whereas textContent will consider it only text. So if you used the bold HTML tags `<b></b>` with innerHTML, you'd get bold text, but with textContent you'd get text that literally includes the characters `<b></b>`
