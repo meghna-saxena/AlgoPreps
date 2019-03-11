@@ -356,3 +356,5 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
 > Notes:
 
 The difference between `innerHTML` and `textContent` is that innerHTML parses whatever you give it as HTML whereas textContent will consider it only text. So if you used the bold HTML tags `<b></b>` with innerHTML, you'd get bold text, but with textContent you'd get text that literally includes the characters `<b></b>`
+
+## Working with *Forms*
