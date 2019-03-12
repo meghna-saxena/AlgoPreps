@@ -385,3 +385,8 @@ document.querySelector('#name-form').addEventListener('submit', function (e) {
 ~ Default type for buttons, type="submit"
 
 ## Checkboxes
+- `<input type="checkbox">`
+- Put input inside label tags
+    - The benefit of using label is, on clicking label, the input field is focused.
+- The event we listen is `change` event
+- Instead of `e.target.value`, check for `e.target.checked` which is a boolean depending on checkbox is checked or not. 

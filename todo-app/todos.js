@@ -49,6 +49,7 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
 })
 
 /** 
+ * HANDLING FORM
  * 1. Create a form with a single input for todo text
  * 2. Setup a submit handler and cancel the default action
  * 3. Add a new item to the todos array with the text data (completed value of false)
@@ -66,3 +67,10 @@ document.querySelector('#new-todo').addEventListener('submit', function (e) {
     e.target.elements.text.value = ''
 })
 
+/**
+ * CHECKBOX
+ * 1. Create a checkbox and setup event listener -> "Hide completed"
+ * 2. Create new hideCompleted filter (default false)
+ * 3. Update hideCompleted and rerender list on chekbox changes
+ * 4. Setup renderTodos to remove completed items.
+ */
