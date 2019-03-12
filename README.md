@@ -211,7 +211,7 @@ console.log(p2.textContent)
 ```
 
 ## Text inputs and live data filtering
-- Right: Input element is an empty element.
+- Right: `Input element is an empty element`.
 `<Input>`
 - Wrong: `<Input>Text</Input>`
 - Input types: text, password etc.
@@ -358,3 +358,30 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
 The difference between `innerHTML` and `textContent` is that innerHTML parses whatever you give it as HTML whereas textContent will consider it only text. So if you used the bold HTML tags `<b></b>` with innerHTML, you'd get bold text, but with textContent you'd get text that literally includes the characters `<b></b>`
 
 ## Working with *Forms*
+- `<form></form>` tags encloses form fields and buttons
+- `<input name="firstName">` _name_ attribute is used when input fields are inside a form. Makes it easier to access field values when form gets submitted. Use camelcase.
+- Default behavior of submit btn is to make page refresh, and changes the url with the form data appended as query string, so it submits the data to the server. 
+Eg: `localhost:5000/?firstName=Meghna`
+- These days due to great browser support, form submission is handled on client-side, like validation, render error msg w/o wiping the filled data by the user.
+- While working with form, add id to it, no matter how many fields are there, target the form itself.
+- Add event listner to form, and the only event we're listening to is the `submit` event.
+- Cancel the default behavior of form; `e.preventDefault()`
+
+> Remember: 
+- `e.target` gives access to the DOM element.
+- `e.target.elements` gives access to all the fields inside the DOM target element
+- To access specific element -> `e.target.elements.firstName`, here firstName is `name` attribute; and to get the value -> `e.target.elements.firstName.value`
+
+```
+document.querySelector('#name-form').addEventListener('submit', function (e) {
+    e.preventDefault()
+    console.log(e.target.elements.firstName.value)
+    //prints the name
+    e.target.elements.firstName.value = ''
+    //wipes the data once submit btn is clicked
+})
+```
+
+~ Default type for buttons, type="submit"
+
+## Checkboxes
