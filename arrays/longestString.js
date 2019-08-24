@@ -1,27 +1,30 @@
-function longestString(array) {
-  const newarr = [];
-  array.map(el => {
-    newarr.push(el.length);
-  });
+function findLongestString(items) {
+  const lengthOfItems = items.map(i => i.length);
 
-  const largeBet = Math.max(...newarr);
+  const biggestNumber = Math.max(...lengthOfItems); //20
 
-  function isLargeNumber(element) {
-    return element.length === largeBet;
-  }
-
-  const largestIndex = array.findIndex(isLargeNumber);
-
-  return array[largestIndex];
+  return items.find(i => i.length === biggestNumber);
 }
 
-console.log(
-  longestString([
-    "short",
-    "first long string!!",
-    "medium",
-    "abcdefghijklmnopqrs"
-  ])
-);
+function findLongestStringOptimized(items) {
+  let longest = items[0];
+  items.forEach(i => {
+    longest = longest.length >= i.length ? longest : i;
+  });
+  return longest;
+}
 
-//  "first long string!!"
+export const findLongestStringByReduce = items => {
+  const getLarger = (x, y) => (x.length >= y.length ? x : y);
+  return items.reduce(getLarger);
+};
+
+const findLongestStringByReduce2 = xs =>
+  xs.reduce((x, y) => (x.length >= y.length ? x : y));
+
+const data = ["short", "first long string!!", "medium", "abcdefghijklmnopqrs"];
+
+console.log(findLongestString(data));
+console.log(findLongestStringOptimized(data));
+console.log(findLongestStringByReduce(data));
+console.log(findLongestStringByReduce2(data));
